@@ -1,24 +1,4 @@
-# README
+# Dingdong
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Experimental app to explore ideas around decomposing a monolith as well as 
+building an app in such as way that it's easy to decompose it later.
