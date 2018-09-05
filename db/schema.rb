@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2018_09_05_233636) do
     t.string "subdomain"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["subdomain"], name: "index_accounts_on_subdomain", unique: true
   end
 
   create_table "users", force: :cascade do |t|
