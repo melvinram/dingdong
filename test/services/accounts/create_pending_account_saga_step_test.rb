@@ -17,5 +17,7 @@ class Accounts::CreatePendingAccountSagaStepTest < ActiveSupport::TestCase
     assert account, 'account not found for account id collected'
 
     assert_equal 'mel', account.subdomain
+    assert account.pending?, 'new account not in pending state'
+    refute account.active?, 'new account is in active state'
   end
 end
