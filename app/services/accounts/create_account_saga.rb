@@ -16,17 +16,13 @@ module Accounts
     end
     
     def steps
-      SagaStepsRunner.new([
+      SagaStepsRunner.new(
+        params: params,
+        steps: [
         CreatePendingAccountSagaStep,
         # CreateUserSagaStep,
         # ActivateAccountSagaStep
       ])
-    end
-
-    class SagaStepsRunner
-      def initialize(steps = [])
-        @steps = steps
-      end
     end
   end
 end
