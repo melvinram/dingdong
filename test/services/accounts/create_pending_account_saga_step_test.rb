@@ -25,5 +25,9 @@ module Accounts
     test '#step_forward raises errors with invalid params' do
       skip
     end
+
+    test '#step_back deletes the pending account' do
+      skip
+    end
   end
 end
