@@ -20,8 +20,8 @@ module Accounts
         params: params,
         steps: [
           CreatePendingAccountSagaStep,
-        # CreateUserSagaStep,
-        # ActivateAccountSagaStep
+          CreateUserSagaStep,
+          # ActivateAccountSagaStep
         ]
       )
     end
