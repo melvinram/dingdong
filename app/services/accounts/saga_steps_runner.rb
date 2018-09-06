@@ -16,13 +16,26 @@ module Accounts
         step.new(params: params, outcome_data: outcome_data).step_forward
       end
 
+      outcome.result = SagaOutcome::SUCCESS
       outcome
     end
 
     class SagaOutcome
-      attr_accessor :data
+      INCOMPLETE = 0
+      SUCCESS = 1
+      FAILURE = 2
+
+      attr_accessor :data, :result, :errors
+
       def initialize(data:)
         @data = data
+        @result = INCOMPLETE
+        @errors = []
+      end
+
+      # untested
+      def success?
+        @result == SUCCESS
       end
     end
   end

@@ -13,7 +13,7 @@ module Accounts
 
       def owner_params
         {
-          account_id: outcome_data[:account_id],
+          account_id: outcome_data.dig(:account, :id),
           email: params.dig(:account, :owner, :email),
           password: params.dig(:account, :owner, :password)
         }

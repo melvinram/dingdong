@@ -2,7 +2,10 @@
 
 class AccountsController < ApplicationController
   def create
-    Accounts::Account.create(account: accounts_params)
+    outcome = Accounts::Account.create(account: accounts_params)
+    if outcome.success?
+      render json: { account: outcome.data[:account] }, status: :ok
+    end
   end
 
   private

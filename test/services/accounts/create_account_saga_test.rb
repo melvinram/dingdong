@@ -13,7 +13,7 @@ class Accounts::CreateAccountSagaTest < ActiveSupport::TestCase
     account = ::Account.where(subdomain: 'mel').first
 
     assert account, 'account creation failed'
-    assert_equal account.id, outcome.data[:account_id], "account id mismatch"
+    assert_equal account.id, outcome.data.dig(:account, :id), "account id mismatch"
     # assert account.active?, 'new account not in active state'
 
     account_owner = ::User.where(account_id: account.id).first

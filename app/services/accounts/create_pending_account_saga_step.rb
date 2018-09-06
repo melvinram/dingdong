@@ -4,8 +4,13 @@ module Accounts
   class CreatePendingAccountSagaStep < SagaStep
     def step_forward
       account = ::Account.new(account_params)
+
       if account.save
-        outcome_data[:account_id] = account.id
+        outcome_data[:account] = {
+          id: account.id,
+          name: account.name,
+          subdomain: account.subdomain
+        }
       end
     end
 

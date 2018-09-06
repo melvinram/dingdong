@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# WARNING: Do not use directly. This is intended to be used through Accounts::Account.create
 module Accounts
   class CreateAccountSaga
     def self.run(params)
