@@ -13,5 +13,13 @@ module Accounts
     def run
       steps.run
     end
+    
+    def steps
+      SagaStepsRunner.new([
+        CreatePendingAccountSagaStep,
+        # CreateUserSagaStep,
+        # ActivateAccountSagaStep
+      ])
+    end
   end
 end
