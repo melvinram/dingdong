@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   def create
-    Accounts::Account.create(accounts_params)
+    Accounts::Account.create(account: accounts_params)
   end
   
   private

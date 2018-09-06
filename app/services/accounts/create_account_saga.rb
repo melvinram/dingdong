@@ -6,7 +6,7 @@ module Accounts
 
     attr_accessor :params
 
-    def initialize(params = {})
+    def initialize(params)
       @params = params
     end
     
@@ -19,10 +19,11 @@ module Accounts
       SagaStepsRunner.new(
         params: params,
         steps: [
-        CreatePendingAccountSagaStep,
+          CreatePendingAccountSagaStep,
         # CreateUserSagaStep,
         # ActivateAccountSagaStep
-      ])
+        ]
+      )
     end
   end
 end
