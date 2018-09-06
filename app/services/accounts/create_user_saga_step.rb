@@ -5,7 +5,7 @@ module Accounts
     def step_forward
       response = Users::User.create(owner_params)
       if response[:success]
-        outcome_data[:owner] = { id: response[:user][:id] }
+        outcome_data[:account][:owner] = response[:user]
       end
     end
 

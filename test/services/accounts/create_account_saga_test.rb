@@ -14,10 +14,10 @@ class Accounts::CreateAccountSagaTest < ActiveSupport::TestCase
 
     assert account, 'account creation failed'
     assert_equal account.id, outcome.data.dig(:account, :id), "account id mismatch"
-    # assert account.active?, 'new account not in active state'
+    assert account.active?, 'new account not in active state'
 
     account_owner = ::User.where(account_id: account.id).first
     assert account_owner, 'account owner not created'
-    # assert outcome.data[:owner], 'account owner not present in outcome'
+    assert outcome.data[:account][:owner], 'account owner not present in outcome'
   end
 end

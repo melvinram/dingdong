@@ -26,7 +26,10 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
     response_hash = JSON.parse(response.body)
     assert response_hash.dig('account', 'id'), 'response does not contain account id'
 
-    owner = User.where(account_id: account.id).first
+    account_owner_id = response_hash.dig('account', 'owner', 'id')
+    assert account_owner_id, 'response does not contain account owner id'
+
+    owner = User.where(account_id: account.id, id: account_owner_id).first
     assert owner, 'account owner not created'
     assert_equal 'mel@example.com', owner.email
   end

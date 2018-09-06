@@ -24,7 +24,7 @@ module Accounts
         steps: [
           CreatePendingAccountSagaStep,
           CreateUserSagaStep,
-          # ActivateAccountSagaStep
+          ActivateAccountSagaStep
         ]
       )
     end

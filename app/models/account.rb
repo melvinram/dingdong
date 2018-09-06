@@ -16,4 +16,9 @@ class Account < ApplicationRecord
   def state_name
     STATES[state]
   end
+
+  def activate
+    self.state = ACTIVE
+    save
+  end
 end
