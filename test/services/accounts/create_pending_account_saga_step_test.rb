@@ -22,5 +22,8 @@ module Accounts
       refute account.active?, 'new account is in active state'
     end
 
+    test '#step_forward raises errors with invalid params' do
+      skip
+    end
   end
 end
