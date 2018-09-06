@@ -10,6 +10,7 @@ module Accounts
       @params = params
     end
     
+    # Returns a SagaOutcome object
     def run
       steps.run
     end
