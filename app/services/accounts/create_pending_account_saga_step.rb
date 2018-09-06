@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Accounts
   class CreatePendingAccountSagaStep < SagaStep
     def step_forward
@@ -6,14 +8,14 @@ module Accounts
         outcome_data[:account_id] = account.id
       end
     end
-    
+
     private
-    
-    def account_params
-      {
-        name: params.dig(:account, :name),
-        subdomain: params.dig(:account, :subdomain),
-      }
-    end
+
+      def account_params
+        {
+          name: params.dig(:account, :name),
+          subdomain: params.dig(:account, :subdomain),
+        }
+      end
   end
 end

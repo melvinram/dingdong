@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Accounts
   class CreateUserSagaStepTest < ActiveSupport::TestCase
     test '#step_forward creates new user when provided valid params' do

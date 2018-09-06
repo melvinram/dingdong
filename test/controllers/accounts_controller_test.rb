@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class AccountsControllerTest < ActionDispatch::IntegrationTest
@@ -12,7 +14,7 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
         }
       }
     }
-    
+
     account = Account.where(subdomain: 'mel').first
     assert account, 'account not created'
   end

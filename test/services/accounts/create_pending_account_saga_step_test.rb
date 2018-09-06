@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 module Accounts
@@ -19,7 +21,7 @@ module Accounts
 
       assert_equal 'mel', account.subdomain
       assert account.pending?, 'new account not in pending state'
-      refute account.active?, 'new account is in active state'
+      assert_not account.active?, 'new account is in active state'
     end
 
     test '#step_forward raises errors with invalid params' do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Accounts
   class CreateUserSagaStep < SagaStep
     def step_forward
@@ -9,12 +11,12 @@ module Accounts
 
     private
 
-    def owner_params
-      {
-        account_id: outcome_data[:account_id],
-        email: params.dig(:account, :owner, :email),
-        password: params.dig(:account, :owner, :password)
-      }
-    end
+      def owner_params
+        {
+          account_id: outcome_data[:account_id],
+          email: params.dig(:account, :owner, :email),
+          password: params.dig(:account, :owner, :password)
+        }
+      end
   end
 end
