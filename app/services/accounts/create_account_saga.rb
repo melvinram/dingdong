@@ -22,5 +22,11 @@ module Accounts
         # ActivateAccountSagaStep
       ])
     end
+
+    class SagaStepsRunner
+      def initialize(steps = [])
+        @steps = steps
+      end
+    end
   end
 end
