@@ -11,7 +11,7 @@ module Accounts
     end
     
     def run
-    
+      steps.run
     end
   end
 end
