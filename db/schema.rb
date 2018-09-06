@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_05_233636) do
+ActiveRecord::Schema.define(version: 2018_09_06_034359) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.string "subdomain"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "state", default: 0
+    t.index ["state"], name: "index_accounts_on_state"
     t.index ["subdomain"], name: "index_accounts_on_subdomain", unique: true
   end
 
