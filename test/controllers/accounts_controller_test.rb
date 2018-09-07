@@ -4,16 +4,10 @@ require 'test_helper'
 
 class AccountsControllerTest < ActionDispatch::IntegrationTest
   test '#create with valid parameters' do
-    post "/accounts.json", params: {
-      account: {
-        name: 'Melvin Ram',
-        subdomain: 'mel',
-        owner: {
-          email: 'mel@example.com',
-          password: '123456'
-        }
-      }
-    }
+    valid_params = { account: attributes_for(:account) }
+    valid_params[:account][:owner] = attributes_for(:user)
+
+    post "/accounts.json", params: valid_params
 
     account = Account.where(subdomain: 'mel').first
 
