@@ -9,9 +9,10 @@ building an app in such as way that it's easy to decompose it later.
 
 Each future service lives within it's own top level namespace. 
 
-Ex: `Accounts` and `Users`.
+Ex: `Accounts` and `Users`
 
-These namespaces are called Service Modules.
+These namespaces are called Service Modules. Their names should be in plural form 
+(`Accounts`, not `Account`) except for rare cases. 
 
 ### Service Resource
 
@@ -54,25 +55,30 @@ can also contain details for associated resources that will need to be created, 
 
 Updating of service objects can happen two ways but only the first way is canonical:
 
-Retrieve & then update
+#### Retrieve & then update
 ```ruby
 account = Account.retrieve(account_id: account_id)
 account.name = "New Name"
-outcome = account.save
+response = account.save
 ``` 
 
-Update directly 
+In the above, the `account.save` would return a Response object that can easily 
+be used to check for state (success/failure), status code, data returned (parsed hash) 
+and performance.  
+
+#### Update directly 
 ```ruby
-outcome = Account.update(account_id: account_id, name: "New Name")
+response = Account.update(account_id: account_id, name: "New Name")
 ``` 
 
 This second approach is more performant so it might be relevant in some cases but
-there really should be one canonical way to do this and the first approach seems 
+there really should be one canonical way to do this and the first approach is 
 more object oriented.
 
 *Open questions:*
 
 * What about partial updates?
+* What about bulk updates?
 
 ### Sagas for orchestrating multi-step, multi-service executions
 
