@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class Accounts::SagaStepsRunnerTest < ActiveSupport::TestCase
+class Accounts::SagaRunnerTest < ActiveSupport::TestCase
   class TestSagaStep < SagaStep
     def step_forward
       outcome_data[:test_saga_step_ran] ||= 0
@@ -16,7 +16,7 @@ class Accounts::SagaStepsRunnerTest < ActiveSupport::TestCase
     params = BASIC_PARAMS
 
     steps = [TestSagaStep, TestSagaStep]
-    outcome = Accounts::SagaStepsRunner.new(steps: steps, params: params).run
+    outcome = Accounts::SagaRunner.new(steps: steps, params: params).run
     assert_equal 2, outcome.data[:test_saga_step_ran]
   end
 end

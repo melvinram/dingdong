@@ -19,7 +19,7 @@ module Accounts
     end
 
     def steps
-      SagaStepsRunner.new(
+      SagaRunner.new(
         params: params,
         steps: [
           CreatePendingAccountSagaStep,

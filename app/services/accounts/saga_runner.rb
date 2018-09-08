@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Accounts
-  class SagaStepsRunner
+  class SagaRunner
     attr_accessor :steps, :params, :outcome_data, :outcome
 
     def initialize(params:, steps:)
